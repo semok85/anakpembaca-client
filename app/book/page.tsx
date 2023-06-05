@@ -4,7 +4,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { AlbumArtwork } from "./components/album-artwork"
+import { Book } from "./components/book"
 import { Menu } from "./components/menu"
 import { PodcastEmptyPlaceholder } from "./components/podcast-empty-placeholder"
 import { Sidebar } from "./components/sidebar"
@@ -24,22 +24,6 @@ export const metadata: Metadata = {
 export default function MusicPage() {
   return (
     <>
-      {/* <div className="md:hidden">
-        <Image
-          src="/examples/music-light.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="block dark:hidden"
-        />
-        <Image
-          src="/examples/music-dark.png"
-          width={1280}
-          height={1114}
-          alt="Music"
-          className="hidden dark:block"
-        />
-      </div> */}
       <div className="">
         <Menu />
         <div className="border-t">
@@ -85,7 +69,7 @@ export default function MusicPage() {
                         <ScrollArea>
                           <div className="flex space-x-4 pb-4">
                             {listenNowAlbums.map((album) => (
-                              <AlbumArtwork
+                              <Book
                                 key={album.name}
                                 album={album}
                                 className="w-[250px]"
@@ -111,7 +95,7 @@ export default function MusicPage() {
                         <ScrollArea>
                           <div className="flex space-x-4 pb-4">
                             {madeForYouAlbums.map((album) => (
-                              <AlbumArtwork
+                              <Book
                                 key={album.name}
                                 album={album}
                                 className="w-[150px]"

@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
@@ -6,7 +7,7 @@ import { buttonVariants } from "@/components/ui/button"
 
 export default function Hero() {
   return (
-    <div className="relative z-20 flex items-center overflow-hidden bg-background hover:shadow-lg">
+    <div className="relative z-20 flex items-center overflow-hidden bg-background drop-shadow duration-300 ease-in-out hover:drop-shadow-lg">
       <div
         className="container relative mx-auto flex rounded-md px-6 py-16"
         style={{
@@ -39,16 +40,19 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
               href={siteConfig.links.github}
-              className={buttonVariants({ variant: "outline" })}
+              className={buttonVariants()}
             >
               Tentang kami
             </Link>
           </div>
         </div>
-        <div className="relative hidden sm:block sm:w-1/3 lg:w-3/5">
-          {/* <img
-            src="/images/anakpembaca-hero.jpg"
-            className="m-auto h-96 max-w-xs md:max-w-sm"
+        <div className="relative mx-auto hidden sm:block ">
+          {/* <Image
+            src="/images/bg/child.png"
+            className="m-auto max-w-xs md:max-w-sm"
+            width={500}
+            height={500}
+            alt="hero image"
           /> */}
         </div>
       </div>

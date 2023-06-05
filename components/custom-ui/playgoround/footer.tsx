@@ -2,7 +2,10 @@ import React from "react"
 
 export default function Footer() {
   return (
-    <footer aria-label="Site Footer" className="bg-gray-100">
+    <footer
+      aria-label="Site Footer"
+      className="mt-6 w-full border-t  bg-gray-900 opacity-90"
+    >
       <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex justify-center text-teal-600">
           <svg

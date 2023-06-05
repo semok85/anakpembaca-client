@@ -6,18 +6,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 interface Slider {
   children: React.ReactNode
   className?: String
+  id: string
 }
 
-const SliderCustom: React.FC<Slider> = ({ children, className }) => {
+const SliderCustom: React.FC<Slider> = ({ children, className, id }) => {
   const [showChevrons, setShowChevrons] = useState(false)
 
   const slideRight = () => {
-    let slider = document.getElementById("slider")!
+    let slider = document.getElementById(id)!
     slider.scrollLeft = slider.scrollLeft + 250
   }
 
   const slideLeft = () => {
-    let slider = document.getElementById("slider")!
+    let slider = document.getElementById(id)!
     slider.scrollLeft = slider.scrollLeft - 250
   }
 
@@ -32,8 +33,9 @@ const SliderCustom: React.FC<Slider> = ({ children, className }) => {
   return (
     <>
       <div
-        id="slider"
-        className={`h-70 scrollbar-hidden relative flex h-auto w-full items-center overflow-x-scroll scroll-smooth px-10 ${className}`}
+        id={id}
+        className={`scroll-bar-kit h-70 pl-2 flex h-auto w-full items-center overflow-x-scroll scroll-smooth ${className}`}
+        style={{ scrollbarWidth: "none" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -43,7 +45,8 @@ const SliderCustom: React.FC<Slider> = ({ children, className }) => {
       {showChevrons && (
         <>
           <div
-            className="bg-opacity/75 absolute right-10 top-1/2 z-0  m-auto flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white"
+            className="absolute right-10 z-10 m-auto flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white opacity-75"
+            style={{ top: "42%" }}
             onClick={slideRight}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -52,7 +55,8 @@ const SliderCustom: React.FC<Slider> = ({ children, className }) => {
           </div>
 
           <div
-            className="bg-opacity/75 absolute left-10 top-1/2 z-0  m-auto flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white"
+            className="absolute left-10 top-1/2 z-10 m-auto  flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white opacity-75"
+            style={{ top: "42%" }}
             onClick={slideLeft}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
