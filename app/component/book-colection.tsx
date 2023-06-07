@@ -4,9 +4,21 @@ import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import SliderCustom from "@/components/ui/slider-custom"
 import { Book } from "@/app/book/components/book"
-import { listenNowAlbums } from "@/app/book/data/albums"
+import { topRatedBooks, type BookType } from "@/app/book/data/library"
 
-export default function Colection2() {
+interface BookColection {
+  title: string
+  description: string
+  url: string
+  data: BookType[]
+}
+
+export default function BookColection({
+  title,
+  description,
+  url,
+  data,
+}: BookColection) {
   return (
     <section>
       <div className="mx-auto rounded-md py-8 sm:py-12">
@@ -22,17 +34,14 @@ export default function Colection2() {
             <div className="mx-auto max-w-md text-center lg:text-left">
               <header>
                 <h2 className="text-xl font-semibold text-gray-900 sm:text-2xl">
-                  Top Rated
+                  {title}
                 </h2>
 
-                <p className="my-4 text-gray-800">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas
-                  rerum quam amet provident nulla error!
-                </p>
+                <p className="my-4 text-gray-800">{description}</p>
               </header>
 
               <Link
-                href="#"
+                href={url}
                 target="_blank"
                 rel="noreferrer"
                 className={buttonVariants()}
@@ -45,10 +54,10 @@ export default function Colection2() {
             <div className="relative">
               <SliderCustom id="topbooks">
                 <div className="flex space-x-4 pb-4">
-                  {listenNowAlbums.map((album) => (
+                  {data.map((book) => (
                     <Book
-                      key={album.name}
-                      album={album}
+                      key={book.title}
+                      book={book}
                       className="w-[250px]"
                       aspectRatio="portrait"
                       width={250}

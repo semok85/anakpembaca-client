@@ -13,18 +13,18 @@ import {
   ContextMenuTrigger,
 } from "@/components/ui/context-menu"
 
-import { Album } from "../data/albums"
+import type { BookType } from "../data/library"
 import { playlists } from "../data/playlists"
 
 interface BookProps extends React.HTMLAttributes<HTMLDivElement> {
-  album: Album
+  book: BookType
   aspectRatio?: "portrait" | "square"
   width?: number
   height?: number
 }
 
 export function Book({
-  album,
+  book,
   aspectRatio = "portrait",
   width,
   height,
@@ -37,8 +37,8 @@ export function Book({
         <ContextMenuTrigger>
           <div className="overflow-hidden rounded-md shadow hover:shadow-lg">
             <Image
-              src={album.cover}
-              alt={album.name}
+              src={book.cover}
+              alt={book.title}
               width={width}
               height={height}
               className={cn(
@@ -76,9 +76,9 @@ export function Book({
       </ContextMenu>
       <div className="space-y-1 text-sm">
         <div className="flex flex-col justify-center gap-1">
-          <h3 className="col-span-2 font-medium leading-none">{album.name}</h3>
+          <h3 className="col-span-2 font-medium leading-none">{book.title}</h3>
           <div className="flex items-center justify-between gap-1">
-            <p className="text-muted-foreground">{album.artist}</p>
+            <p className="text-muted-foreground">{book.author}</p>
             <span className="mr-2 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900 dark:text-green-300">
               In Stock
             </span>

@@ -57,7 +57,7 @@ export default function Footer() {
           </svg>
         </div>
 
-        <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+        <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-300">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
           consequuntur amet culpa cum itaque neque.
         </p>
@@ -66,7 +66,7 @@ export default function Footer() {
           <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-700/75"
                 href="/"
               >
                 About
@@ -75,7 +75,7 @@ export default function Footer() {
 
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-300/75"
                 href="/"
               >
                 Careers
@@ -84,7 +84,7 @@ export default function Footer() {
 
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-300/75"
                 href="/"
               >
                 History
@@ -93,7 +93,7 @@ export default function Footer() {
 
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-300/75"
                 href="/"
               >
                 Services
@@ -102,7 +102,7 @@ export default function Footer() {
 
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-300/75"
                 href="/"
               >
                 Projects
@@ -111,7 +111,7 @@ export default function Footer() {
 
             <li>
               <a
-                className="text-gray-700 transition hover:text-gray-700/75"
+                className="text-gray-300 transition hover:text-gray-300/75"
                 href="/"
               >
                 Blog
@@ -126,7 +126,7 @@ export default function Footer() {
               href="/"
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:text-gray-700/75"
+              className="text-gray-300 transition hover:text-gray-300/75"
             >
               <span className="sr-only">Facebook</span>
               <svg
@@ -149,7 +149,7 @@ export default function Footer() {
               href="/"
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:text-gray-700/75"
+              className="text-gray-300 transition hover:text-gray-300/75"
             >
               <span className="sr-only">Instagram</span>
               <svg
@@ -172,7 +172,7 @@ export default function Footer() {
               href="/"
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:text-gray-700/75"
+              className="text-gray-300 transition hover:text-gray-300/75"
             >
               <span className="sr-only">Twitter</span>
               <svg
@@ -191,7 +191,7 @@ export default function Footer() {
               href="/"
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:text-gray-700/75"
+              className="text-gray-300 transition hover:text-gray-300/75"
             >
               <span className="sr-only">GitHub</span>
               <svg
@@ -214,7 +214,7 @@ export default function Footer() {
               href="/"
               rel="noreferrer"
               target="_blank"
-              className="text-gray-700 transition hover:text-gray-700/75"
+              className="text-gray-300 transition hover:text-gray-300/75"
             >
               <span className="sr-only">Dribbble</span>
               <svg

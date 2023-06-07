@@ -119,7 +119,7 @@ const bookCategories: {
         "Buku-buku yang membahas isu-isu lingkungan dan kelestarian alam, yang memberikan anak-anak pemahaman tentang pentingnya menjaga lingkungan hidup.",
     },
     {
-      category: "Kesehatan dan kebugaran",
+      category: "Kesehatan, kebugaran",
       description:
         "Buku-buku yang mengajarkan anak-anak tentang kebugaran dan menjaga kesehatan tubuh mereka, termasuk latihan, nutrisi, dan kebiasaan sehari-hari yang sehat",
     },

@@ -6,7 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 
 import Hero from "./hero"
 
-export default function Colection() {
+export default function TopHero() {
   return (
     <section>
       <div className="mx-auto py-4 sm:px-1 sm:py-4">
@@ -22,7 +22,7 @@ export default function Colection() {
                 className="aspect-square h-48 w-full rounded-md object-cover transition duration-500 group-hover:opacity-90"
               />
 
-              <div className="absolute inset-0 flex flex-col items-start justify-end rounded-md p-6 drop-shadow hover:drop-shadow-lg">
+              <div className="absolute inset-0 flex flex-col items-start justify-end rounded-md p-6 shadow duration-300 ease-in-out hover:shadow-lg">
                 <h3 className="mb-2 text-xl font-medium ">Casual Trainers</h3>
 
                 {/* <Link
@@ -44,7 +44,7 @@ export default function Colection() {
                 className="aspect-square h-48 w-full rounded-md object-cover transition duration-500 group-hover:opacity-90"
               />
 
-              <div className="absolute inset-0 flex flex-col items-start justify-end rounded-md p-6 drop-shadow hover:drop-shadow-lg">
+              <div className="absolute inset-0 flex flex-col items-start justify-end rounded-md p-6 shadow duration-300 ease-in-out hover:shadow-lg">
                 <h3 className="mb-2 text-xl font-medium">Winter Jumpers</h3>
 
                 {/* <Link

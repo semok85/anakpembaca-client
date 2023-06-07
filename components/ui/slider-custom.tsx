@@ -34,7 +34,7 @@ const SliderCustom: React.FC<Slider> = ({ children, className, id }) => {
     <>
       <div
         id={id}
-        className={`scroll-bar-kit h-70 pl-2 flex h-auto w-full items-center overflow-x-scroll scroll-smooth ${className}`}
+        className={`scroll-bar-kit h-70 flex h-auto w-full items-center overflow-x-scroll scroll-smooth pl-2 ${className}`}
         style={{ scrollbarWidth: "none" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
