@@ -25,11 +25,11 @@ export default function IndexPage() {
         <TopRated />
         <TopAuthor />
         <Blogs />
-        {/* <Book />
+        <Book />
         <Review />
-        <Blog />
+        {/* <Blog /> */}
 
-        <Header2 /> */}
+        {/* <Header2 /> */}
       </section>
       <Footer />
     </>

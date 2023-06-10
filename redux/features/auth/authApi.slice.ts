@@ -1,6 +1,6 @@
 import { apiSlice } from "@/redux/service/api.slice"
 
-import { removeCurentUser } from "../user/user.slice"
+// import { removeCurentUser } from "../user/user.slice"
 import { logOut, setCurrentToken } from "./auth.slice"
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -29,7 +29,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
           const { data } = await queryFulfilled
           //console.log(data);
           dispatch(logOut())
-          dispatch(removeCurentUser())
           setTimeout(() => {
             dispatch(apiSlice.util.resetApiState())
           }, 1000)
@@ -40,7 +39,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
     }),
     refresh: builder.mutation({
       query: () => ({
-        url: "/auth/refreshtoken",
+        url: "/auth/getrefreshtoken",
         method: "GET",
       }),
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {

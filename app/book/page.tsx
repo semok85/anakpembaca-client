@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 export default function MusicPage() {
   return (
     <>
+      <Sidebar playlists={playlists} className=" hidden w-60 lg:block" />
       <div className="w-full lg:border-l">
         <div className="h-full px-4 py-6 lg:px-8">
           <Tabs defaultValue="buku-anak" className="h-full space-y-6">
@@ -72,48 +73,7 @@ export default function MusicPage() {
                     />
                   ))}
                 </div>
-                {/* <ScrollArea>
-                  <div className="flex space-x-4 pb-4">
-                    {topRatedBooks.map((book) => (
-                      <Book
-                        key={book.title}
-                        book={book}
-                        className="w-[250px]"
-                        aspectRatio="portrait"
-                        width={250}
-                        height={330}
-                      />
-                    ))}
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea> */}
               </div>
-              {/* <div className="mt-6 space-y-1">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  Made for You
-                </h2>
-                <p className="text-sm text-muted-foreground">
-                  Your personal playlists. Updated daily.
-                </p>
-              </div>
-              <Separator className="my-4" />
-              <div className="relative">
-                <ScrollArea>
-                  <div className="flex space-x-4 pb-4">
-                    {madeForYouAlbums.map((book) => (
-                      <Book
-                        key={book.title}
-                        book={book}
-                        className="w-[150px]"
-                        aspectRatio="square"
-                        width={150}
-                        height={150}
-                      />
-                    ))}
-                  </div>
-                  <ScrollBar orientation="horizontal" />
-                </ScrollArea>
-              </div> */}
             </TabsContent>
             <TabsContent
               value="podcasts"

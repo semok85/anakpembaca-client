@@ -32,4 +32,4 @@ export const { setCurrentToken, setCurrentUser, logOut } = authSlice.actions
 export default authSlice.reducer
 
 export const selectCurrentToken = (state: State) => state.auth.accessToken
-export const selectCurrentUser = (state: State) => state.auth.user
+export const selectUser = (state: State) => state.auth.user

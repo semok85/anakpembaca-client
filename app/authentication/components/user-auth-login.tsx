@@ -1,16 +1,27 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { setCurrentToken } from "@/redux/features/auth/auth.slice"
 import { useLoginMutation } from "@/redux/features/auth/authApi.slice"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
+import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import * as z from "zod"
 
 import { cn } from "@/lib/utils"
 import usePersist from "@/hooks/usePersist"
 import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
@@ -52,7 +63,14 @@ interface LoginUserField {
 }
 
 export function UserAuthLogin({ className, ...props }: UserAuthFormProps) {
-  async function onSubmit(event: React.SyntheticEvent) {}
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  })
+  // async function onSubmit(event: React.SyntheticEvent) {}
 
   let [persist, setPersist] = usePersist()
   const router = useRouter()
@@ -60,9 +78,10 @@ export function UserAuthLogin({ className, ...props }: UserAuthFormProps) {
   const dispatch = useDispatch()
   const [login, { isLoading, isError, isSuccess }] = useLoginMutation()
   const onLogin = async (values: z.infer<typeof formSchema>) => {
+    console.log("values :", values)
     try {
       const authData = await login(values).unwrap()
-      console.log(authData)
+      console.log("data :", authData)
       if (authData) {
         dispatch(setCurrentToken(authData.accessToken))
         router.push("/")
@@ -75,42 +94,54 @@ export function UserAuthLogin({ className, ...props }: UserAuthFormProps) {
 
   return (
     <div className={cn("grid gap-6", className)} {...props}>
-      <form onSubmit={onSubmit}>
-        <div className="grid gap-2">
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="email">
-              Email
-            </Label>
-            <Input
-              id="email"
-              placeholder="name@example.com"
-              type="email"
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect="off"
-              disabled={isLoading}
-            />
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onLogin)}>
+          <div className="grid gap-2">
+            <div className="grid gap-1">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="sr-only">Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="email@contoh.com"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="grid gap-1">
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="sr-only">Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <Button disabled={isLoading} type="submit">
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Sign In with Email
+            </Button>
           </div>
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="password">
-              Password
-            </Label>
-            <Input
-              id="password"
-              placeholder="password"
-              type="password"
-              autoCapitalize="none"
-              autoComplete="password"
-              autoCorrect="off"
-              disabled={isLoading}
-            />
-          </div>
-          <Button disabled={isLoading}>
-            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Sign In with Email
-          </Button>
-        </div>
-      </form>
+        </form>
+      </Form>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />

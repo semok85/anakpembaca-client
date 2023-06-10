@@ -4,14 +4,17 @@ import { useSelector } from "react-redux"
 
 const useAuth = () => {
   const token = useSelector(selectCurrentToken)
-  const decoded = jwtDecode(token as string)
-  try {
-    if (decoded) {
-      return true
+  if (token) {
+    try {
+      const decoded = jwtDecode(token as string)
+      if (decoded) {
+        return true
+      }
+    } catch (error) {
+      return false
     }
-  } catch (error) {
-    return false
   }
+  return false
 }
 
 export default useAuth

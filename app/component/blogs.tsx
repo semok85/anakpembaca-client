@@ -11,7 +11,7 @@ export default function Blogs() {
   let arr = [1, 2, 3, 4, 5, 6]
   return (
     <section>
-      <div className="space-y-1">
+      <div className="space-y-2">
         <h2 className="text-2xl font-semibold tracking-tight">Blog</h2>
         <p className="text-sm text-muted-foreground">
           Blog tentang literasi anak dan parenting.

@@ -2,6 +2,8 @@ import "@/styles/globals.css"
 import React from "react"
 import type { Metadata } from "next"
 
+import { SiteHeader } from "@/components/site-header"
+
 import { Menu } from "./components/menu"
 import { Sidebar } from "./components/sidebar"
 import { playlists } from "./data/playlists"
@@ -18,17 +20,12 @@ export default function BooksLayout({
 }) {
   return (
     <>
+      <SiteHeader />
       <div className="">
-        <Menu />
-        <div className="border-t">
+        {/* <Menu /> */}
+        <div>
           <div className="bg-background">
-            <div className="flex">
-              <Sidebar
-                playlists={playlists}
-                className=" hidden w-60 lg:block"
-              />
-              {children}
-            </div>
+            <div className="flex">{children}</div>
           </div>
         </div>
       </div>

@@ -9,7 +9,8 @@ import { logOut, setCurrentToken } from "../features/auth/auth.slice"
 import { RootState } from "../store"
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://18.141.178.84:8000/api/v1",
+  baseUrl: "https://api.anakpembaca.com/api/v1",
+  // baseUrl: "http://localhost:8000/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.accessToken
@@ -30,7 +31,7 @@ const baseQueryWithReauth: BaseQueryFn<
     console.log("sending refresh token")
     //send refresh token to get new access token
     const refreshResult = await baseQuery(
-      "/auth/refreshtoken",
+      "/auth/getrefreshtoken",
       api,
       extraOptions
     )
