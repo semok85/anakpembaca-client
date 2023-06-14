@@ -4,10 +4,6 @@ import type { Metadata } from "next"
 
 import { SiteHeader } from "@/components/site-header"
 
-import { Menu } from "./components/menu"
-import { Sidebar } from "./components/sidebar"
-import { playlists } from "./data/playlists"
-
 export const metadata: Metadata = {
   title: "Books page",
   description: "Displaying page",

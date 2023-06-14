@@ -48,23 +48,26 @@ export const booksApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: (result, error, id) => [{ type: "Book", id }],
     }),
-    addNewBook: builder.mutation({
-      query: (initialBookData) => ({
+    addNewBook: builder.mutation<{}, FormData>({
+      query: (formData) => ({
         url: "/books",
         method: "POST",
-        body: {
-          ...initialBookData,
-        },
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+        body: formData,
       }),
       invalidatesTags: [{ type: "Book", id: "LIST" }],
     }),
     updateBook: builder.mutation<Book, Book>({
       query: ({ id, ...initialBookData }) => ({
         url: `/books/update/${id}`,
+        headers: { "Content-Type": "multipart/form-data" },
         method: "PATCH",
         body: {
           ...initialBookData,
         },
+        formData: true,
       }),
       invalidatesTags: (result, error, arg) => [{ type: "Book", id: arg.id }],
     }),

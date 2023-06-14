@@ -9,8 +9,8 @@ import { logOut, setCurrentToken } from "../features/auth/auth.slice"
 import { RootState } from "../store"
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://api.anakpembaca.com/api/v1",
-  // baseUrl: "http://localhost:8000/api/v1",
+  // baseUrl: "https://api.anakpembaca.com/api/v1",
+  baseUrl: "http://localhost:8000/api/v1",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.accessToken

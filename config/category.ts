@@ -2,6 +2,11 @@ interface Category {
   category: string
   description: string
 }
+interface CategoryCheckList {
+  id: string
+  label: string
+}
+
 const bookCategories: {
   [char: string]: Category[]
 } = {
@@ -196,4 +201,15 @@ export const listMenu = (category: string): Menu => {
     })
   )
   return optionsMenu
+}
+
+export const categoriesCheckList = (category: string): CategoryCheckList[] => {
+  const checkListCategory: CategoryCheckList[] = []
+  bookCategories[category].map((category) =>
+    checkListCategory.push({
+      id: category.category.split(" ").join().toLocaleLowerCase(),
+      label: category.category,
+    })
+  )
+  return checkListCategory
 }
