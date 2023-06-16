@@ -40,7 +40,7 @@ export const booksApiSlice = apiSlice.injectEndpoints({
     }),
     getBookById: builder.query<Book, string>({
       query: (id) => ({
-        url: `/books/id/${id}`,
+        url: `/books/${id}`,
         method: "GET",
         validateStatus: (response, result) => {
           return response.status === 200 && !result.isError
@@ -48,26 +48,19 @@ export const booksApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: (result, error, id) => [{ type: "Book", id }],
     }),
-    addNewBook: builder.mutation<{}, FormData>({
+    addNewBook: builder.mutation<FormData, Partial<FormData>>({
       query: (formData) => ({
         url: "/books",
         method: "POST",
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
         body: formData,
       }),
       invalidatesTags: [{ type: "Book", id: "LIST" }],
     }),
-    updateBook: builder.mutation<Book, Book>({
-      query: ({ id, ...initialBookData }) => ({
+    updateBook: builder.mutation({
+      query: ({ id, formData }) => ({
         url: `/books/update/${id}`,
-        headers: { "Content-Type": "multipart/form-data" },
         method: "PATCH",
-        body: {
-          ...initialBookData,
-        },
-        formData: true,
+        body: formData,
       }),
       invalidatesTags: (result, error, arg) => [{ type: "Book", id: arg.id }],
     }),
@@ -85,7 +78,7 @@ export const {
 export const selectBooksResult = booksApiSlice.endpoints.getBooks.select()
 
 // creates memoized selector
-const selectUsersData = createSelector(
+const selectBooksData = createSelector(
   selectBooksResult,
   (bookResult) => bookResult.data // normalized state object with ids & entities
 )
@@ -97,5 +90,5 @@ export const {
   selectIds: selectBookIds,
   // Pass in a selector that returns the users slice of state
 } = booksAdapter.getSelectors<RootState>(
-  (state) => selectUsersData(state) ?? initialState
+  (state) => selectBooksData(state) ?? initialState
 )

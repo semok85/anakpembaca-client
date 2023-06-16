@@ -2,6 +2,8 @@ import "@/styles/globals.css"
 import React from "react"
 import type { Metadata } from "next"
 
+import Footer from "@/app/component/footer"
+
 import { MainNav } from "./components/main-nav"
 import { Search } from "./components/search"
 import TeamSwitcher from "./components/team-switcher"
@@ -30,6 +32,7 @@ export default function DashboardLayout({
         </div>
       </div>
       <div>{children}</div>
+      <Footer />
     </>
   )
 }

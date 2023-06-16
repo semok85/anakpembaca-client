@@ -30,7 +30,6 @@ export default function Hero() {
           <div className="mt-8 flex gap-4">
             <Link
               href={siteConfig.links.docs}
-              target="_blank"
               rel="noreferrer"
               className={buttonVariants()}
             >
